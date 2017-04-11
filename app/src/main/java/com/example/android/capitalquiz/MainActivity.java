@@ -21,11 +21,25 @@ public class MainActivity extends AppCompatActivity {
     private int currentCheckBox = 0;
     private int totalAnswers = 0;
     private int correct = 0;
+    RadioButton answer1;
+    RadioButton answer2;
+    RadioButton answer3;
+    TextView country;
+    TextView score;
+    TextView total;
+    ImageView thumb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        answer1 = (RadioButton) findViewById(R.id.answer1);
+        answer2 = (RadioButton) findViewById(R.id.answer2);
+        answer3 = (RadioButton) findViewById(R.id.answer3);
+        country = (TextView) findViewById(R.id.country);
+        score = (TextView) findViewById(R.id.correct_field);
+        total = (TextView) findViewById(R.id.total_field);
+        thumb = (ImageView) findViewById(R.id.thumb);
         setCountriesCapitals();
         askQuestion();
 
@@ -69,14 +83,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setCountry() {
-        TextView country = (TextView) findViewById(R.id.country);
         country.setText("Country: " + countries[currentIndex]);
     }
 
     public void setCapitals() {
-        RadioButton answer1 = (RadioButton) findViewById(R.id.answer1);
-        RadioButton answer2 = (RadioButton) findViewById(R.id.answer2);
-        RadioButton answer3 = (RadioButton) findViewById(R.id.answer3);
         currentCheckBox = rand.nextInt(3);
 
         if (currentCheckBox == 0) {
@@ -123,11 +133,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateDisplay() {
-        TextView score = (TextView) findViewById(R.id.correct_field);
         score.setText("" + correct);
-        TextView total = (TextView) findViewById(R.id.total_field);
         total.setText("" + totalAnswers);
-        ImageView thumb = (ImageView) findViewById(R.id.thumb);
         float angle = (1 - (float) correct / totalAnswers) * 180;
         thumb.setRotation(angle);
         unsetCheckBoxes();
@@ -135,9 +142,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void unsetCheckBoxes() {
-        RadioButton answer1 = (RadioButton) findViewById(R.id.answer1);
-        RadioButton answer2 = (RadioButton) findViewById(R.id.answer2);
-        RadioButton answer3 = (RadioButton) findViewById(R.id.answer3);
         answer1.setChecked(false);
         answer2.setChecked(false);
         answer3.setChecked(false);
@@ -148,11 +152,8 @@ public class MainActivity extends AppCompatActivity {
         unsetCheckBoxes();
         totalAnswers = 0;
         correct = 0;
-        TextView score = (TextView) findViewById(R.id.correct_field);
         score.setText("" + correct);
-        TextView total = (TextView) findViewById(R.id.total_field);
         total.setText("" + totalAnswers);
-        ImageView thumb = (ImageView) findViewById(R.id.thumb);
         thumb.setRotation(0);
         askQuestion();
     }
