@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] capitals = new String[10];
     private int currentIndex = 0;
     private int currentCheckBox = 0;
+    private int[] checkBoxIndices = new int[3];
     private int totalAnswers = 0;
     private int correct = 0;
     RadioButton answer1;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-      TODO: There is still a bug that sometimes leads to incorrect evaluation of the answer
+      Generate and display and new Question
      */
     public void askQuestion() {
         currentIndex = rand.nextInt(10);
@@ -91,20 +92,40 @@ public class MainActivity extends AppCompatActivity {
 
         if (currentCheckBox == 0) {
             answer1.setText(capitals[currentIndex]);
+            checkBoxIndices[0] = currentIndex;
         } else {
-            answer1.setText(capitals[rand.nextInt(10)]);
+            int nextIndexTemp = rand.nextInt(10);
+            while (nextIndexTemp == currentIndex) {
+                nextIndexTemp = rand.nextInt(10);
+            }
+            checkBoxIndices[0] = nextIndexTemp;
+            answer1.setText(capitals[nextIndexTemp]);
         }
 
         if (currentCheckBox == 1) {
             answer2.setText(capitals[currentIndex]);
+            checkBoxIndices[1] = currentIndex;
         } else {
-            answer2.setText(capitals[rand.nextInt(10)]);
+            int nextIndexTemp = rand.nextInt(10);
+            while (nextIndexTemp == currentIndex || nextIndexTemp == checkBoxIndices[0]) {
+                nextIndexTemp = rand.nextInt(10);
+            }
+            checkBoxIndices[1] = nextIndexTemp;
+            answer2.setText(capitals[nextIndexTemp]);
         }
 
         if (currentCheckBox == 2) {
             answer3.setText(capitals[currentIndex]);
+            checkBoxIndices[2] = currentIndex;
         } else {
-            answer3.setText(capitals[rand.nextInt(10)]);
+            int nextIndexTemp = rand.nextInt(10);
+            while (nextIndexTemp == currentIndex
+                    || nextIndexTemp == checkBoxIndices[0]
+                    || nextIndexTemp == checkBoxIndices[1]) {
+                nextIndexTemp = rand.nextInt(10);
+            }
+            checkBoxIndices[2] = nextIndexTemp;
+            answer3.setText(capitals[nextIndexTemp]);
         }
     }
 
