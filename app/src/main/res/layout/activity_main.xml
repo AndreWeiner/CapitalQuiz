@@ -1,105 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:fillViewport="true"
     tools:context="com.example.android.capitalquiz.MainActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lineWidth"
-        android:background="@color/white"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:textStyle="bold"
-        android:background="@color/colorPrimary"
-        android:gravity="center_horizontal"
-        android:textSize="@dimen/largeText"
-        android:textColor="@color/white"
-        android:paddingTop="@dimen/padding_horizontal"
-        android:paddingBottom="@dimen/padding_horizontal"
-        android:layout_height="wrap_content"
-        android:text="@string/first_line" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/padding_horizontal"
-        android:paddingBottom="@dimen/padding_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/result"
-            android:id="@+id/correct_field"
-            android:gravity="right"
-            android:text="@string/correct"/>
-        <TextView
-            style="@style/result"
-            android:gravity="center_horizontal"
-            android:text="@string/separator"/>
-        <TextView
-            style="@style/result"
-            android:id="@+id/total_field"
-            android:text="@string/total"/>
-
-        <ImageView
-            android:layout_width="@dimen/scoreHeight"
-            android:layout_height="@dimen/scoreHeight"
-            android:id="@+id/thumb"
-            android:rotation="0"
-            android:src="@drawable/thumb"/>
-
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lineWidth"
-        android:background="@color/colorAccent"/>
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="@dimen/padding_horizontal"
-        android:paddingEnd="@dimen/padding_horizontal">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/country"
-            android:textSize="@dimen/largeText"
-            android:id="@+id/country"
-            android:gravity="center_vertical"
-            android:textColor="@color/colorAccent"
-            android:layout_weight="1"/>
+            android:layout_height="@dimen/lineWidth"
+            android:background="@color/white" />
 
-        <RadioButton
-            style="@style/radioStyle"
-            android:text="@string/answer1"
-            android:onClick="answer1Clicked"
-            android:id="@+id/answer1"/>
-        <RadioButton
-            style="@style/radioStyle"
-            android:text="@string/answer2"
-            android:onClick="answer2Clicked"
-            android:id="@+id/answer2"/>
-        <RadioButton
-            style="@style/radioStyle"
-            android:text="@string/answer3"
-            android:onClick="answer3Clicked"
-            android:id="@+id/answer3"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/padding_horizontal"
+            android:paddingTop="@dimen/padding_horizontal"
+            android:text="@string/first_line"
             android:textColor="@color/white"
-            android:textSize="@dimen/smallText"
-            android:onClick="resetAll"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:text="@string/reset"/>
-    </RadioGroup>
-</LinearLayout>
+            android:textSize="@dimen/largeText"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/padding_horizontal"
+            android:paddingTop="@dimen/padding_horizontal">
+
+            <TextView
+                android:id="@+id/correct_field"
+                style="@style/result"
+                android:gravity="end"
+                android:text="@string/correct" />
+
+            <TextView
+                style="@style/result"
+                android:gravity="center_horizontal"
+                android:text="@string/separator" />
+
+            <TextView
+                android:id="@+id/total_field"
+                style="@style/result"
+                android:text="@string/total" />
+
+            <ImageView
+                android:id="@+id/thumb"
+                android:contentDescription="thumb"
+                android:layout_width="@dimen/scoreHeight"
+                android:layout_height="@dimen/scoreHeight"
+                android:rotation="0"
+                android:src="@drawable/thumb" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lineWidth"
+            android:background="@color/colorAccent" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingEnd="@dimen/padding_horizontal"
+            android:paddingStart="@dimen/padding_horizontal">
+
+            <TextView
+                android:id="@+id/country"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/country"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/largeText" />
+
+            <RadioButton
+                android:id="@+id/answer1"
+                style="@style/radioStyle"
+                android:onClick="answer1Clicked"
+                android:text="@string/answer1" />
+
+            <RadioButton
+                android:id="@+id/answer2"
+                style="@style/radioStyle"
+                android:onClick="answer2Clicked"
+                android:text="@string/answer2" />
+
+            <RadioButton
+                android:id="@+id/answer3"
+                style="@style/radioStyle"
+                android:onClick="answer3Clicked"
+                android:text="@string/answer3" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:onClick="resetAll"
+                android:text="@string/reset"
+                android:textColor="@color/white"
+                android:textSize="@dimen/smallText" />
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>
