@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.android.capitalquiz.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lineWidth"
+        android:background="@color/white"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/largeText"
+        android:textColor="@color/white"
+        android:paddingTop="@dimen/padding_horizontal"
+        android:paddingBottom="@dimen/padding_horizontal"
+        android:layout_height="wrap_content"
+        android:text="@string/first_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding_horizontal"
+        android:paddingBottom="@dimen/padding_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/result"
+            android:id="@+id/correct_field"
+            android:gravity="right"
+            android:text="@string/correct"/>
+        <TextView
+            style="@style/result"
+            android:gravity="center_horizontal"
+            android:text="@string/separator"/>
+        <TextView
+            style="@style/result"
+            android:id="@+id/total_field"
+            android:text="@string/total"/>
+
+        <ImageView
+            android:layout_width="@dimen/scoreHeight"
+            android:layout_height="@dimen/scoreHeight"
+            android:id="@+id/thumb"
+            android:rotation="0"
+            android:src="@drawable/thumb"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lineWidth"
+        android:background="@color/colorAccent"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/padding_horizontal"
+        android:paddingEnd="@dimen/padding_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/country"
+            android:textSize="@dimen/largeText"
+            android:id="@+id/country"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorAccent"
+            android:layout_weight="1"/>
+
+        <RadioButton
+            style="@style/radioStyle"
+            android:text="@string/answer1"
+            android:onClick="answer1Clicked"
+            android:id="@+id/answer1"/>
+        <RadioButton
+            style="@style/radioStyle"
+            android:text="@string/answer2"
+            android:onClick="answer2Clicked"
+            android:id="@+id/answer2"/>
+        <RadioButton
+            style="@style/radioStyle"
+            android:text="@string/answer3"
+            android:onClick="answer3Clicked"
+            android:id="@+id/answer3"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:textSize="@dimen/smallText"
+            android:onClick="resetAll"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:text="@string/reset"/>
+    </RadioGroup>
+</LinearLayout>
